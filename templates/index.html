@@ -3,9 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/flask-boggle/boggle.py">
         <title>Flask Boggle</title>
     </head>
     <body>
-        <section></section>
+    <h1>Welcome to boggle</h1>
+        <section id="game-container">
+        <table id="game-board">
+            <tbody>
+                {% for row in board %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {%endfor%}
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        </section>
     </body>
 </html>
