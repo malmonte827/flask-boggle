@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/flask-boggle/boggle.py" />
+        <link rel="stylesheet" href="/static/app.css" />
         <title>Flask Boggle</title>
     </head>
     <body>
-        <h1>Welcome to boggle</h1>
+        <h1>Welcome to Boggle</h1>
+
+        {############### Boggle Game Board ###############}
+
         <section id="game-container">
             <table id="game-board">
                 <tbody>
@@ -22,13 +25,33 @@
             </table>
         </section>
 
+        {############### Timer and Score Data ###############}
+
+        <section>
+            <p>High Score: <b class="high-score">{{highscore}}</b></p>
+            <p>Played: <b class="times-played">{{plays}}</b></p>
+            <p>Current Score: <b class="score">0</b></p>
+            <p>Time Left: <b class="timer"></b></p>
+            <p class="msg"></p>
+        </section>
+
+        {############### Guessing Input Field ###############}
         <section>
             <div>
-                <form action="/valid-word">
-                <label for="word-check">Submit a guess</label>
-                <input type="text" placeholder="Enter guess here">
+                <form method="POST" class="guess">
+                    <input
+                        type="text"
+                        class="word"
+                        name="word"
+                        placeholder="Enter guess"
+                    />
+                    <button>Submit</button>
                 </form>
             </div>
         </section>
+
+        <script src="http://unpkg.com/jquery"></script>
+        <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+        <script src="../static/app.js"></script>
     </body>
 </html>
